@@ -12,6 +12,7 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import { Link as ReactLink } from "react-router-dom";
+import { motion } from "framer-motion";
 import { FaGooglePlay } from "react-icons/fa";
 
 import { AiFillApple } from "react-icons/ai";
@@ -26,7 +27,7 @@ const ClubCard = () => {
     <VStack
       borderRadius="16"
       border="1px"
-      borderColor="gray.100"
+      borderColor="gray.300"
       pt={isSmallerThan850 ? "4px" : "14px"}
       pr="2"
       pl="2"
@@ -49,9 +50,8 @@ const ClubCard = () => {
       <Divider />
 
       <Text p="2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, rem! Adipisci recusandae
-        atque, culpa consequatur necessitatibus odit illo in enim, at optio autem, velit vero
-        repellendus fugit? Soluta, at dignissimos.
+        Create an account and submit questions and answers for your favorite club. Subject to review
+        by admin before loaded in downloadable application.
       </Text>
       <Divider />
       <Spacer />
@@ -62,7 +62,15 @@ const ClubCard = () => {
           style={{ textDecoration: "none" }}
           isExternal
         >
-          <Box borderRadius="8" border="1px" borderColor="gray" p="1.5" w="160px" h="54px">
+          <Box
+            borderRadius="8"
+            border="1px"
+            borderColor="gray"
+            p="1.5"
+            w="160px"
+            h="54px"
+            _hover={{ transform: "scale(.8)" }}
+          >
             <HStack alignItems="center">
               <Icon as={AiFillApple} h="10" w="10" />
               <Box>
@@ -83,7 +91,16 @@ const ClubCard = () => {
           style={{ textDecoration: "none" }}
           isExternal
         >
-          <Box borderRadius="8" border="1px" borderColor="gray" p="1.5" w="160px" h="54px" px="4">
+          <Box
+            borderRadius="8"
+            border="1px"
+            borderColor="gray"
+            p="1.5"
+            w="160px"
+            h="54px"
+            px="4"
+            _hover={{ transform: "scale(.8)" }}
+          >
             <HStack alignItems="center">
               <Icon as={FaGooglePlay} h="8" w="8" />
               <Box>

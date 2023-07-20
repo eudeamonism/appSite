@@ -10,7 +10,7 @@ const ConstructionCard = () => {
     <VStack
       borderRadius="16"
       border="1px"
-      borderColor="gray.100"
+      borderColor="gray.300"
       pt="4"
       pr="2"
       maxW={isSmallerThan850 ? "350px" : "425px"}
