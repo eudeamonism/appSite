@@ -1,9 +1,23 @@
-import { Link, Flex, Text, Spacer, Box, useColorModeValue, Icon, HStack } from "@chakra-ui/react";
+import {
+  Link,
+  Flex,
+  Text,
+  Spacer,
+  Box,
+  useColorModeValue,
+  Icon,
+  HStack,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import { Link as ReactLink } from "react-router-dom";
 import { ColorModeSwitcher } from "../Components/ColorModeSwitcher";
-import { FaAppStoreIos, FaAndroid } from "react-icons/fa";
 
 const NavBar = () => {
+  const [isSmallerThan850] = useMediaQuery("(max-width: 850px)", {
+    ssr: true,
+    fallback: "false",
+  });
+
   const links = [
     { linkName: "sign-up", path: "/signup" },
     { linkName: "login", path: "/login" },
@@ -40,4 +54,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
