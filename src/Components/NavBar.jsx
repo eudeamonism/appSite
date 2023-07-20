@@ -11,16 +11,19 @@ import {
 } from "@chakra-ui/react";
 import { Link as ReactLink } from "react-router-dom";
 import { ColorModeSwitcher } from "../Components/ColorModeSwitcher";
+import { AiFillHome } from "react-icons/ai";
 
 const NavBar = () => {
-  const [isSmallerThan850] = useMediaQuery("(max-width: 850px)", {
+  const [isSmallerThan380] = useMediaQuery("(min-width: 380px)", {
     ssr: true,
     fallback: "false",
   });
 
   const links = [
-    { linkName: "sign-up", path: "/signup" },
-    { linkName: "login", path: "/login" },
+    { linkName: "Home", path: "/" },
+    { linkName: "Signup", path: "/signup" },
+    { linkName: "Login", path: "/login" },
+    { linkName: "About Us", path: "/aboutus" },
   ];
 
   const NavLink = ({ path, children }) => (
@@ -30,26 +33,29 @@ const NavBar = () => {
       px={2}
       py={2}
       rounded="md"
-      _hover={{ textDecoration: "none", bg: "green" }}
+      _hover={{ textDecoration: "none", bg: "rgba(132, 232, 125, 0.2)" }}
+      fontSize={{base: 'md', lg: 'xl'}}
     >
       {children}
     </Link>
   );
   return (
-    <Box
+    <Flex
       h="16"
       alignItems="center"
       justifyContent="space-between"
-      bg={useColorModeValue("gray.100", "gray.900")}
+      bg={useColorModeValue("rgba(0,0,0,.05)", "gray.900")}
       px="4"
     >
-      <Flex h="16" alignItems="center" gap="4">
-        <Text>Login</Text>
-        <Text>Sign up</Text>
-        <Spacer />
-        <ColorModeSwitcher />
-      </Flex>
-    </Box>
+      <HStack as="nav" spacing={4}>
+        {links.map((link) => (
+          <NavLink key={link.linkName} path={link.path}>
+            {link.linkName}
+          </NavLink>
+        ))}
+      </HStack>
+      <ColorModeSwitcher />
+    </Flex>
   );
 };
 

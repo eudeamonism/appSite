@@ -10,9 +10,9 @@ const LandingPage = () => {
   });
 
   return (
-    <Center >
+    <Center>
       {!isSmallerThan850 ? (
-        <HStack >
+        <HStack>
           <ClubCard />
           <ConstructionCard />
         </HStack>
@@ -26,4 +26,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage
+export default LandingPage;

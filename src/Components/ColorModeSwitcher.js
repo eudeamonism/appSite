@@ -13,6 +13,7 @@ export const ColorModeSwitcher = (props) => {
 
   return (
     <IconButton
+      _hover={{ textDecoration: "none", bg: "rgba(132, 232, 125, 0.2)" }}
       fontSize={!isSmallerThan850 ? "24px" : "22px"}
       aria-label={`Switch to ${text} mode`}
       variant="ghost"
