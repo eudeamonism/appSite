@@ -47,7 +47,7 @@ const ClubCard = () => {
       mt="2"
     >
       <HStack>
-        <Image boxSize="150" objectFit="cover" src="/images/appLogoVersion3.jpg" alt="FCAC Logo" />
+        <Image boxSize="150" objectFit="cover" src="/images/brandImage.png" alt="FCAC Logo" />
         <Stack>
           <Text fontSize="5xl" fontFamily="Bree Serif, serif">
             F.C.A.C.
@@ -69,7 +69,13 @@ const ClubCard = () => {
       <HStack mb="4">
         <Tooltip label="Coming Soon!">
           <CustomCard>
-            <Link as={ReactLink} to="/" style={{ textDecoration: "none" }} isExternal>
+            <Link
+              as={ReactLink}
+              to="/"
+              style={{ textDecoration: "none" }}
+              isExternal
+              _disabled="true"
+            >
               <Box
                 borderRadius="8"
                 border="1px"
@@ -78,12 +84,13 @@ const ClubCard = () => {
                 w="160px"
                 h="54px"
                 _hover={{ color: "gray" }}
+                mr="-4"
               >
                 <HStack alignItems="center">
                   <Icon as={AiFillApple} h="10" w="10" />
                   <Box>
-                    <Text mb="-1" fontSize="xs">
-                      Download on the
+                    <Text mb="1" fontSize="xs">
+                      {isSmallerThan850 ? "Coming soon..." : "Download on the "}
                     </Text>
                     <Text fontSize="medium" fontWeight="bold" fontFamily="Helvetica">
                       Apple Store
@@ -108,10 +115,10 @@ const ClubCard = () => {
                 _hover={{ color: "gray" }}
               >
                 <HStack alignItems="center">
-                  <Icon as={FaGooglePlay} h="8" w="8" />
+                  <Icon as={FaGooglePlay} h="8" w="8" mb="-1" />
                   <Box>
-                    <Text mb="-1" fontSize="xs">
-                      Android app on
+                    <Text mb="1" fontSize="xs">
+                    {isSmallerThan850 ? "Coming soon..." : "Download on"}
                     </Text>
                     <HStack>
                       <Text fontSize="medium" fontWeight="medium" fontFamily="Georgia">

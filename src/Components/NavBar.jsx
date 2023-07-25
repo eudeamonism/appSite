@@ -8,13 +8,21 @@ import {
   Icon,
   HStack,
   useMediaQuery,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  IconButton,
+  ListItem,
+  List,
 } from "@chakra-ui/react";
+
+import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link as ReactLink } from "react-router-dom";
 import { ColorModeSwitcher } from "../Components/ColorModeSwitcher";
-import { AiFillHome } from "react-icons/ai";
 
 const NavBar = () => {
-  const [isSmallerThan380] = useMediaQuery("(min-width: 380px)", {
+  const [isLargerThan400] = useMediaQuery("(max-width: 400px)", {
     ssr: true,
     fallback: "false",
   });
@@ -25,6 +33,7 @@ const NavBar = () => {
     { linkName: "Login", path: "/login" },
     { linkName: "About Us", path: "/aboutus" },
     { linkName: "Privacy", path: "/privacy" },
+    { linkName: "Form", path: "/form" },
   ];
 
   const NavLink = ({ path, children }) => (
@@ -35,12 +44,12 @@ const NavBar = () => {
       py={2}
       rounded="md"
       _hover={{ textDecoration: "none", bg: "rgba(132, 232, 125, 0.2)" }}
-      fontSize={{base: 'md', lg: 'xl'}}
     >
       {children}
     </Link>
   );
-  return (
+
+  const NavigationBar = (
     <Flex
       h="16"
       alignItems="center"
@@ -58,6 +67,30 @@ const NavBar = () => {
       <ColorModeSwitcher />
     </Flex>
   );
+
+  const MenuDropDown = (
+    <HStack>
+      <Menu isLazy>
+        <MenuButton>
+          <HamburgerIcon boxSize="25px" m="2" />
+        </MenuButton>
+        <MenuList>
+          <List>
+            {links.map((link) => (
+              <NavLink key={link.linkName} path={link.path}>
+                <MenuItem fontSize="lg" letterSpacing="wider">
+                  {link.linkName}
+                </MenuItem>
+              </NavLink>
+            ))}
+          </List>
+        </MenuList>
+      </Menu>
+      <Spacer />
+      <ColorModeSwitcher m="2" />
+    </HStack>
+  );
+  return <>{isLargerThan400 ? MenuDropDown : NavigationBar}</>;
 };
 
 export default NavBar;
