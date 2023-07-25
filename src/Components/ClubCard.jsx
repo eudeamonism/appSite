@@ -1,3 +1,5 @@
+import { forwardRef } from "react";
+
 import {
   Box,
   Text,
@@ -10,9 +12,10 @@ import {
   Spacer,
   Divider,
   useMediaQuery,
+  Tooltip,
+  Tag,
 } from "@chakra-ui/react";
 import { Link as ReactLink } from "react-router-dom";
-import { motion } from "framer-motion";
 import { FaGooglePlay } from "react-icons/fa";
 
 import { AiFillApple } from "react-icons/ai";
@@ -22,6 +25,14 @@ const ClubCard = () => {
     ssr: true,
     fallback: "false",
   });
+
+  const CustomCard = forwardRef(({ children, ...rest }, ref) => (
+    <Box>
+      <Tag ref={ref} {...rest} bg="none">
+        {children}
+      </Tag>
+    </Box>
+  ));
 
   return (
     <VStack
@@ -56,72 +67,71 @@ const ClubCard = () => {
       <Divider />
       <Spacer />
       <HStack mb="4">
-        <Link
-          as={ReactLink}
-          to="https://apps.apple.com/us/app/candy-crush-saga/id553834731"
-          style={{ textDecoration: "none" }}
-          isExternal
-        >
-          <Box
-            borderRadius="8"
-            border="1px"
-            borderColor="gray"
-            p="1.5"
-            w="160px"
-            h="54px"
-            _hover={{ transform: "scale(.8)" }}
-          >
-            <HStack alignItems="center">
-              <Icon as={AiFillApple} h="10" w="10" />
-              <Box>
-                <Text mb="-1" fontSize="xs">
-                  Download on the
-                </Text>
-                <Text fontSize="medium" fontWeight="bold" fontFamily="Helvetica">
-                  Apple Store
-                </Text>
-              </Box>
-            </HStack>
-          </Box>
-        </Link>
-
-        <Link
-          as={ReactLink}
-          to="https://apps.apple.com/us/app/candy-crush-saga/id553834731"
-          style={{ textDecoration: "none" }}
-          isExternal
-        >
-          <Box
-            borderRadius="8"
-            border="1px"
-            borderColor="gray"
-            p="1.5"
-            w="160px"
-            h="54px"
-            px="4"
-            _hover={{ transform: "scale(.8)" }}
-          >
-            <HStack alignItems="center">
-              <Icon as={FaGooglePlay} h="8" w="8" />
-              <Box>
-                <Text mb="-1" fontSize="xs">
-                  Android app on
-                </Text>
-                <HStack>
-                  <Text fontSize="medium" fontWeight="medium" fontFamily="Georgia">
-                    Google
-                  </Text>
-                  <Text ml="-1" fontSize="sm" fontWeight="light">
-                    play
-                  </Text>
+        <Tooltip label="Coming Soon!">
+          <CustomCard>
+            <Link as={ReactLink} to="/" style={{ textDecoration: "none" }} isExternal>
+              <Box
+                borderRadius="8"
+                border="1px"
+                borderColor="gray"
+                p="1.5"
+                w="160px"
+                h="54px"
+                _hover={{ color: "gray" }}
+              >
+                <HStack alignItems="center">
+                  <Icon as={AiFillApple} h="10" w="10" />
+                  <Box>
+                    <Text mb="-1" fontSize="xs">
+                      Download on the
+                    </Text>
+                    <Text fontSize="medium" fontWeight="bold" fontFamily="Helvetica">
+                      Apple Store
+                    </Text>
+                  </Box>
                 </HStack>
               </Box>
-            </HStack>
-          </Box>
-        </Link>
+            </Link>
+          </CustomCard>
+        </Tooltip>
+        <Tooltip label="Coming Soon!">
+          <CustomCard>
+            <Link as={ReactLink} to="/" style={{ textDecoration: "none" }} isExternal>
+              <Box
+                borderRadius="8"
+                border="1px"
+                borderColor="gray"
+                p="1.5"
+                w="160px"
+                h="54px"
+                px="4"
+                _hover={{ color: "gray" }}
+              >
+                <HStack alignItems="center">
+                  <Icon as={FaGooglePlay} h="8" w="8" />
+                  <Box>
+                    <Text mb="-1" fontSize="xs">
+                      Android app on
+                    </Text>
+                    <HStack>
+                      <Text fontSize="medium" fontWeight="medium" fontFamily="Georgia">
+                        Google
+                      </Text>
+                      <Text ml="-1" fontSize="sm" fontWeight="light">
+                        play
+                      </Text>
+                    </HStack>
+                  </Box>
+                </HStack>
+              </Box>
+            </Link>
+          </CustomCard>
+        </Tooltip>
       </HStack>
     </VStack>
   );
 };
 
 export default ClubCard;
+
+//NOTES: transform: "scale(.8)"

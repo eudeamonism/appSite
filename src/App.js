@@ -5,6 +5,7 @@ import NavBar from "./Components/NavBar";
 import AboutUs from "./Screens/AboutUs";
 import Login from "./Screens/Login";
 import SignUp from "./Screens/SignUp";
+import Privacy from "./Components/Privacy";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/privacy" element={<Privacy />} />
           </Routes>
         </main>
       </Router>

@@ -24,6 +24,7 @@ const NavBar = () => {
     { linkName: "Signup", path: "/signup" },
     { linkName: "Login", path: "/login" },
     { linkName: "About Us", path: "/aboutus" },
+    { linkName: "Privacy", path: "/privacy" },
   ];
 
   const NavLink = ({ path, children }) => (
