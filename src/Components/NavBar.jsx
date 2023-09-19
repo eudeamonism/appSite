@@ -18,36 +18,17 @@ import {
 } from "@chakra-ui/react";
 
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { Link as ReactLink } from "react-router-dom";
+import { Link as ReactLink, useNavigate } from "react-router-dom";
 import { ColorModeSwitcher } from "../Components/ColorModeSwitcher";
 
 const NavBar = () => {
+  const navigate = useNavigate();
   const [isLargerThan400] = useMediaQuery("(max-width: 400px)", {
     ssr: true,
     fallback: "false",
   });
 
-  const links = [
-    { linkName: "Home", path: "/" },
-    { linkName: "Signup", path: "/signup" },
-    { linkName: "Login", path: "/login" },
-    { linkName: "About Us", path: "/aboutus" },
-    { linkName: "Privacy", path: "/privacy" },
-    { linkName: "Form", path: "/form" },
-  ];
-
-  const NavLink = ({ path, children }) => (
-    <Link
-      as={ReactLink}
-      to={path}
-      px={2}
-      py={2}
-      rounded="md"
-      _hover={{ textDecoration: "none", bg: "rgba(132, 232, 125, 0.2)" }}
-    >
-      {children}
-    </Link>
-  );
+  const [isLargerThan900] = useMediaQuery("(width > 900px)");
 
   const NavigationBar = (
     <Flex
@@ -56,15 +37,70 @@ const NavBar = () => {
       justifyContent="space-between"
       bg={useColorModeValue("rgba(0,0,0,.05)", "gray.900")}
       px="4"
+      minW="850px"
     >
-      <HStack as="nav" spacing={4}>
-        {links.map((link) => (
-          <NavLink key={link.linkName} path={link.path}>
-            {link.linkName}
-          </NavLink>
-        ))}
+      <HStack as="nav" spacing={4} fontSize={isLargerThan900 ? "15px" : "14px"}>
+        <Link>
+          <Text
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Home
+          </Text>
+        </Link>
+        <Text color="gray.400" cursor="pointer">
+          SignUp
+        </Text>
+        <Link>
+          <Text
+            onClick={() => {
+              navigate("/aboutus");
+            }}
+          >
+            About Us
+          </Text>
+        </Link>
+        <Link>
+          <Text
+            onClick={() => {
+              navigate("/privacy");
+            }}
+          >
+            Privacy
+          </Text>
+        </Link>
+        <Link>
+          <Text
+            onClick={() => {
+              navigate("/form");
+            }}
+          >
+            Form
+          </Text>
+        </Link>
+        <Link>
+          <Text
+            onClick={() => {
+              navigate("/teams");
+            }}
+          >
+            List of Teams/Add Your Team
+          </Text>
+        </Link>
+        <Text color="gray.400" cursor="pointer">
+          Music Credits
+        </Text>
+        <Text color="gray.400" cursor="pointer">
+          Thankyous
+        </Text>
       </HStack>
-      <ColorModeSwitcher />
+      <Flex alignItems="center">
+        <Text color="gray.400" cursor="pointer">
+          Login
+        </Text>
+        <ColorModeSwitcher />
+      </Flex>
     </Flex>
   );
 
@@ -75,15 +111,54 @@ const NavBar = () => {
           <HamburgerIcon boxSize="25px" m="2" />
         </MenuButton>
         <MenuList>
-          <List>
-            {links.map((link) => (
-              <NavLink key={link.linkName} path={link.path}>
-                <MenuItem fontSize="lg" letterSpacing="wider">
-                  {link.linkName}
-                </MenuItem>
-              </NavLink>
-            ))}
-          </List>
+          <MenuItem>
+            <Link
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Home
+            </Link>
+          </MenuItem>
+          <MenuItem color="gray.400">Signup</MenuItem>
+          <MenuItem>
+            <Link
+              onClick={() => {
+                navigate("/aboutus");
+              }}
+            >
+              About Us
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link
+              onClick={() => {
+                navigate("/privacy");
+              }}
+            >
+              Privacy
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link
+              onClick={() => {
+                navigate("/form");
+              }}
+            >
+              Form
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link
+              onClick={() => {
+                navigate("/teams");
+              }}
+            >
+              List of Teams/Add your Team
+            </Link>
+          </MenuItem>
+          <MenuItem color="gray.400">Music Credits</MenuItem>
+          <MenuItem color="gray.400">Thankyous</MenuItem>
         </MenuList>
       </Menu>
       <Spacer />

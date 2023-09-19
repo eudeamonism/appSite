@@ -9,7 +9,8 @@ const Login = () => {
 
   return (
     <VStack>
-      <SmallForm />{" "}
+      <Text>Hello!</Text>
+      <SmallForm />
     </VStack>
   );
 };

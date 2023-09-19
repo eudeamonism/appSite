@@ -14,6 +14,7 @@ import {
   useMediaQuery,
   Tooltip,
   Tag,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { Link as ReactLink } from "react-router-dom";
 import { FaGooglePlay } from "react-icons/fa";
@@ -45,6 +46,7 @@ const ClubCard = () => {
       maxW={isSmallerThan850 ? "350px" : "425px"}
       height={isSmallerThan850 ? "450px" : "425px"}
       mt="2"
+      bg={useColorModeValue("white", "blue.900")}
     >
       <HStack>
         <Image boxSize="150" objectFit="cover" src="/images/brandImage.png" alt="FCAC Logo" />
@@ -118,7 +120,7 @@ const ClubCard = () => {
                   <Icon as={FaGooglePlay} h="8" w="8" mb="-1" />
                   <Box>
                     <Text mb="1" fontSize="xs">
-                    {isSmallerThan850 ? "Coming soon..." : "Download on"}
+                      {isSmallerThan850 ? "Coming soon..." : "Download on"}
                     </Text>
                     <HStack>
                       <Text fontSize="medium" fontWeight="medium" fontFamily="Georgia">
