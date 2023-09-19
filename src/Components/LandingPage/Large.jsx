@@ -6,11 +6,12 @@ const Large = () => {
     ssr: true,
     fallback: "false",
   });
+
+  const [isLargerThan1000] = useMediaQuery("(width > 1000px)");
   return (
     <Box
       bgImage={"url(/images/field3.jpg) "}
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
+      backgroundRepeat={isLargerThan1000 ? "repeat" : "no-repeat"}
       height="1000px"
     >
       <Center>
