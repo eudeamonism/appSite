@@ -1,9 +1,9 @@
 import { VStack, useMediaQuery, Center, Flex } from "@chakra-ui/react";
 
-import Large from "../Components/Teams/Large";
-import Small from "../Components/Teams/Small";
+import Large from "../Components/Music/Large";
+import Small from "../Components/Music/Small";
 
-const Teams = () => {
+const Music = () => {
   const [isSmallerThan850] = useMediaQuery("(max-width: 850px)", {
     ssr: true,
     fallback: "false",
@@ -22,4 +22,4 @@ const Teams = () => {
   );
 };
 
-export default Teams;
+export default Music;

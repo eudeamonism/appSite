@@ -8,6 +8,7 @@ import SignUp from "./Screens/SignUp";
 import Privacy from "./Components/Privacy";
 import GoogleForm from "./Screens/GoogleForm";
 import Teams from "./Screens/Teams";
+import Music from "./Screens/Music";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/form" element={<GoogleForm />} />
             <Route path="/teams" element={<Teams />} />
+            <Route path="/music" element={<Music />} />
           </Routes>
         </main>
       </Router>

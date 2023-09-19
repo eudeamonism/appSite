@@ -23,7 +23,7 @@ import { ColorModeSwitcher } from "../Components/ColorModeSwitcher";
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const [isLargerThan400] = useMediaQuery("(max-width: 400px)", {
+  const [isLargerThan850] = useMediaQuery("(max-width: 850px)", {
     ssr: true,
     fallback: "false",
   });
@@ -37,65 +37,70 @@ const NavBar = () => {
       justifyContent="space-between"
       bg={useColorModeValue("rgba(0,0,0,.05)", "gray.900")}
       px="4"
-      minW="850px"
+      minW="1000px"
     >
-      <HStack as="nav" spacing={4} fontSize={isLargerThan900 ? "15px" : "14px"}>
-        <Link>
-          <Text
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            Home
-          </Text>
-        </Link>
-        <Text color="gray.400" cursor="pointer">
-          SignUp
+      <Link>
+        <Text
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Home
         </Text>
-        <Link>
-          <Text
-            onClick={() => {
-              navigate("/aboutus");
-            }}
-          >
-            About Us
-          </Text>
-        </Link>
-        <Link>
-          <Text
-            onClick={() => {
-              navigate("/privacy");
-            }}
-          >
-            Privacy
-          </Text>
-        </Link>
-        <Link>
-          <Text
-            onClick={() => {
-              navigate("/form");
-            }}
-          >
-            Form
-          </Text>
-        </Link>
-        <Link>
-          <Text
-            onClick={() => {
-              navigate("/teams");
-            }}
-          >
-            List of Teams/Add Your Team
-          </Text>
-        </Link>
-        <Text color="gray.400" cursor="pointer">
+      </Link>
+      <Text color="gray.400" cursor="pointer">
+        SignUp
+      </Text>
+      <Link>
+        <Text
+          onClick={() => {
+            navigate("/aboutus");
+          }}
+        >
+          About Us
+        </Text>
+      </Link>
+      <Link>
+        <Text
+          onClick={() => {
+            navigate("/privacy");
+          }}
+        >
+          Privacy
+        </Text>
+      </Link>
+      <Link>
+        <Text
+          onClick={() => {
+            navigate("/form");
+          }}
+        >
+          Form
+        </Text>
+      </Link>
+      <Link>
+        <Text
+          onClick={() => {
+            navigate("/teams");
+          }}
+        >
+          List of Teams/Add Your Team
+        </Text>
+      </Link>
+      <Link>
+        <Text
+          onClick={() => {
+            navigate("/music");
+          }}
+        >
           Music Credits
         </Text>
-        <Text color="gray.400" cursor="pointer">
-          Thankyous
-        </Text>
-      </HStack>
-      <Flex alignItems="center">
+      </Link>
+      <Text color="gray.400" cursor="pointer">
+        Thankyous
+      </Text>
+
+      <Flex alignItems="center" ml="150px">
         <Text color="gray.400" cursor="pointer">
           Login
         </Text>
@@ -157,7 +162,16 @@ const NavBar = () => {
               List of Teams/Add your Team
             </Link>
           </MenuItem>
-          <MenuItem color="gray.400">Music Credits</MenuItem>
+          <MenuItem>
+            <Link
+              onClick={() => {
+                navigate("/music");
+              }}
+            >
+              Music Credits
+            </Link>
+          </MenuItem>
+          
           <MenuItem color="gray.400">Thankyous</MenuItem>
         </MenuList>
       </Menu>
@@ -165,7 +179,7 @@ const NavBar = () => {
       <ColorModeSwitcher m="2" />
     </HStack>
   );
-  return <>{isLargerThan400 ? MenuDropDown : NavigationBar}</>;
+  return <>{isLargerThan850 ? MenuDropDown : NavigationBar}</>;
 };
 
 export default NavBar;
