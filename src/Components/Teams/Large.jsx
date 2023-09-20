@@ -37,7 +37,7 @@ const Large = () => {
               bg={useColorModeValue("white", "blue.900")}
               fontSize="xl"
             >
-              <Text as="ins">Current Club</Text>
+              <Text as="ins">Current Clubs</Text>
               <Text mt="2" mb="4">
                 Barcelona, Bayern Munich, Chelsea, Juventus, Liverpool, Manchester United,
                 Manchester City, Newcastle United, Paris Saint-Germain, Real Madrid, Tottenham

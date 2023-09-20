@@ -32,7 +32,7 @@ const Small = () => {
           border="1px"
           borderColor="gray.300"
         >
-          <Text as="ins">Current Club</Text>
+          <Text as="ins">Current Clubs</Text>
           <Text fontSize="sm" mb="4px">
             Barcelona, Bayern Munich, Chelsea, Juventus, Liverpool, Manchester United, Manchester
             City, Newcastle United, Paris Saint-Germain, Real Madrid, Tottenham Hotspur

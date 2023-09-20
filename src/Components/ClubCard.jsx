@@ -60,14 +60,8 @@ const ClubCard = () => {
           <Text fontSize="sm">Free | Offers In-App Purchases</Text>
         </Stack>
       </HStack>
-      <Divider />
+      <Divider mb="25px"/>
 
-      <Text p="2">
-        Create an account and submit questions and answers for your favorite club. Subject to review
-        by admin before loaded in downloadable application.
-      </Text>
-      <Divider />
-      <Spacer />
       <HStack mb="4">
         <Tooltip label="Coming Soon!">
           <CustomCard>
@@ -137,6 +131,12 @@ const ClubCard = () => {
           </CustomCard>
         </Tooltip>
       </HStack>
+      <Divider mt="10px"/>
+
+      <Text p="2" mt="-5px">
+        Create an account and submit questions and answers for your favorite club. Subject to review
+        by admin before loaded in downloadable application.
+      </Text>
     </VStack>
   );
 };
