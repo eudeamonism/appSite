@@ -60,7 +60,7 @@ const ClubCard = () => {
           <Text fontSize="sm">Free | Offers In-App Purchases</Text>
         </Stack>
       </HStack>
-      <Divider mb="25px"/>
+      <Divider mb="25px" />
 
       <HStack mb="4">
         <Tooltip label="Coming Soon!">
@@ -97,41 +97,38 @@ const ClubCard = () => {
             </Link>
           </CustomCard>
         </Tooltip>
-        <Tooltip label="Coming Soon!">
-          <CustomCard>
-            <Link as={ReactLink} to="/" style={{ textDecoration: "none" }} isExternal>
-              <Box
-                borderRadius="8"
-                border="1px"
-                borderColor="gray"
-                p="1.5"
-                w="160px"
-                h="54px"
-                px="4"
-                _hover={{ color: "gray" }}
-              >
-                <HStack alignItems="center">
-                  <Icon as={FaGooglePlay} h="8" w="8" mb="-1" />
-                  <Box>
-                    <Text mb="1" fontSize="xs">
-                      {isSmallerThan850 ? "Coming soon..." : "Download on"}
-                    </Text>
-                    <HStack>
-                      <Text fontSize="medium" fontWeight="medium" fontFamily="Georgia">
-                        Google
-                      </Text>
-                      <Text ml="-1" fontSize="sm" fontWeight="light">
-                        play
-                      </Text>
-                    </HStack>
-                  </Box>
+
+        <Link as={ReactLink} to="https://play.google.com/store/apps/details?id=com.DefaultCompany.ForClubAndCountry&pli=1" style={{ textDecoration: "none" }} isExternal>
+          <Box
+            borderRadius="8"
+            border="1px"
+            borderColor="gray"
+            p="1.5"
+            w="160px"
+            h="54px"
+            px="4"
+            _hover={{ color: "#66ff99" }}
+          >
+            <HStack alignItems="center">
+              <Icon as={FaGooglePlay} h="8" w="8" mb="-1" />
+              <Box>
+                <Text mb="1" fontSize="xs">
+                  {isSmallerThan850 ? "Coming soon..." : "Download on"}
+                </Text>
+                <HStack>
+                  <Text fontSize="medium" fontWeight="medium" fontFamily="Georgia">
+                    Google
+                  </Text>
+                  <Text ml="-1" fontSize="sm" fontWeight="light">
+                    play
+                  </Text>
                 </HStack>
               </Box>
-            </Link>
-          </CustomCard>
-        </Tooltip>
+            </HStack>
+          </Box>
+        </Link>
       </HStack>
-      <Divider mt="10px"/>
+      <Divider mt="10px" />
 
       <Text p="2" mt="-5px">
         Create an account and submit questions and answers for your favorite club. Subject to review
