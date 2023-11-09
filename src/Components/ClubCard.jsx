@@ -63,42 +63,39 @@ const ClubCard = () => {
       <Divider mb="25px" />
 
       <HStack mb="4">
-        <Tooltip label="Coming Soon!">
-          <CustomCard>
-            <Link
-              as={ReactLink}
-              to="/"
-              style={{ textDecoration: "none" }}
-              isExternal
-              _disabled="true"
+        <CustomCard>
+          <Link as={ReactLink} to="https://apps.apple.com/us/app/for-club-and-country/id6468639275" style={{ textDecoration: "none" }} isExternal>
+            <Box
+              borderRadius="8"
+              border="1px"
+              borderColor="gray"
+              p="1.5"
+              w="160px"
+              h="54px"
+              _hover={{ color: "#66ff99" }}
+              mr="-4"
             >
-              <Box
-                borderRadius="8"
-                border="1px"
-                borderColor="gray"
-                p="1.5"
-                w="160px"
-                h="54px"
-                _hover={{ color: "gray" }}
-                mr="-4"
-              >
-                <HStack alignItems="center">
-                  <Icon as={AiFillApple} h="10" w="10" />
-                  <Box>
-                    <Text mb="1" fontSize="xs">
-                      {isSmallerThan850 ? "Coming soon..." : "Download on the "}
-                    </Text>
-                    <Text fontSize="medium" fontWeight="bold" fontFamily="Helvetica">
-                      Apple Store
-                    </Text>
-                  </Box>
-                </HStack>
-              </Box>
-            </Link>
-          </CustomCard>
-        </Tooltip>
+              <HStack alignItems="center">
+                <Icon as={AiFillApple} h="10" w="10" />
+                <Box>
+                  <Text mb="1" fontSize="xs">
+                    {isSmallerThan850 ? "Coming soon..." : "Download on the "}
+                  </Text>
+                  <Text fontSize="medium" fontWeight="bold" fontFamily="Helvetica">
+                    Apple Store
+                  </Text>
+                </Box>
+              </HStack>
+            </Box>
+          </Link>
+        </CustomCard>
 
-        <Link as={ReactLink} to="https://play.google.com/store/apps/details?id=com.DefaultCompany.ForClubAndCountry&pli=1" style={{ textDecoration: "none" }} isExternal>
+        <Link
+          as={ReactLink}
+          to="https://play.google.com/store/apps/details?id=com.DefaultCompany.ForClubAndCountry&pli=1"
+          style={{ textDecoration: "none" }}
+          isExternal
+        >
           <Box
             borderRadius="8"
             border="1px"
