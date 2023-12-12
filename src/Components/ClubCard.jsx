@@ -79,7 +79,7 @@ const ClubCard = () => {
                 <Icon as={AiFillApple} h="10" w="10" />
                 <Box>
                   <Text mb="1" fontSize="xs">
-                    {isSmallerThan850 ? "Coming soon..." : "Download on the "}
+                    {isSmallerThan850 ? "Download on the" : "Download on the "}
                   </Text>
                   <Text fontSize="medium" fontWeight="bold" fontFamily="Helvetica">
                     Apple Store
@@ -110,7 +110,7 @@ const ClubCard = () => {
               <Icon as={FaGooglePlay} h="8" w="8" mb="-1" />
               <Box>
                 <Text mb="1" fontSize="xs">
-                  {isSmallerThan850 ? "Coming soon..." : "Download on"}
+                  {isSmallerThan850 ? "Download on" : "Download on"}
                 </Text>
                 <HStack>
                   <Text fontSize="medium" fontWeight="medium" fontFamily="Georgia">
