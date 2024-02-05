@@ -1,25 +1,35 @@
+import { useState } from "react";
 import {
   Box,
   Text,
   Link,
   VStack,
   HStack,
-  Stack,
-  Image,
   Icon,
   Spacer,
   Divider,
   useMediaQuery,
   Center,
   Flex,
+  Button,
 } from "@chakra-ui/react";
 import { Link as ReactLink } from "react-router-dom";
-import { motion } from "framer-motion";
 import { BsDiscord } from "react-icons/bs";
 
-import { AiFillApple } from "react-icons/ai";
-
 const AboutUs = () => {
+  const [disc, setDisc] = useState(false);
+  const discordLink = "https://discord.gg/FDbekJXN44";
+
+  const clipboardHandler = async () => {
+    try {
+      await navigator.clipboard.writeText(discordLink);
+      setDisc(true);
+      alert("Link copied to clipboard! Click again to travel to our Discord server!");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const [isSmallerThan850] = useMediaQuery("(max-width: 850px)", {
     ssr: true,
     fallback: "false",
@@ -57,10 +67,10 @@ const AboutUs = () => {
         <Spacer />
         <HStack mb="4">
           <Link
-            as={ReactLink}
-            to="https://discord.gg/RAYTr6BA"
+            href={disc === true ? discordLink : null}
             style={{ textDecoration: "none" }}
             isExternal
+            onClick={clipboardHandler}
           >
             <Box
               borderRadius="8"

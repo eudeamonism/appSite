@@ -64,7 +64,12 @@ const ClubCard = () => {
 
       <HStack mb="4">
         <CustomCard>
-          <Link as={ReactLink} to="https://apps.apple.com/us/app/for-club-and-country/id6468639275" style={{ textDecoration: "none" }} isExternal>
+          <Link
+            as={ReactLink}
+            to="https://apps.apple.com/us/app/for-club-and-country/id6468639275"
+            style={{ textDecoration: "none" }}
+            isExternal
+          >
             <Box
               borderRadius="8"
               border="1px"
@@ -128,8 +133,8 @@ const ClubCard = () => {
       <Divider mt="10px" />
 
       <Text p="2" mt="-5px">
-        Create an account and submit questions and answers for your favorite club. Subject to review
-        by admin before loaded in downloadable application.
+        Try the application and subscribe? Send us your own favorite matches to add to the growing
+        list of teams and puzzles.
       </Text>
     </VStack>
   );

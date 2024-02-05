@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Text,
@@ -19,6 +20,19 @@ const Large = () => {
 
   const [isLargerThan1000] = useMediaQuery("(width > 1000px)");
 
+  const [disc, setDisc] = useState(false);
+  const discordLink = "https://discord.gg/FDbekJXN44";
+
+  const clipboardHandler = async () => {
+    try {
+      await navigator.clipboard.writeText(discordLink);
+      setDisc(true);
+      alert("Link copied to clipboard! Click again to travel to our Discord server!");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Center
       bgImage={"url(/images/field3.jpg) "}
@@ -39,14 +53,14 @@ const Large = () => {
             >
               <Text as="ins">Current Clubs</Text>
               <Text mt="2" mb="4">
-                Barcelona, Bayern Munich, Chelsea, Juventus, Liverpool, Manchester United,
-                Manchester City, Newcastle United, Paris Saint-Germain, Real Madrid, Tottenham
-                Hotspur
+                Ajax, Barcelona, Bayern Munich, Boca Juniors, Borussia Dortumnd, Chelsea, Juventus,
+                Liverpool, Manchester City, Manchester United, Newcastle United, Paris
+                Saint-Germain, Real Madrid, Tottenham Hotspur
               </Text>
               <Text as="ins">Current Countries</Text>
               <Text mt="2">
-                Argentina, Brazil, England, France, Korea Republic, Italy, Spain, United States
-                (Men), United States (Women)
+                Argentina, Brazil, England, France, Germany, Italy, Korea Republic, Nigeria, Spain,
+                United States (Men), United States (Women)
               </Text>
             </Box>
             <Box
@@ -59,21 +73,19 @@ const Large = () => {
               fontSize="xl"
             >
               <Text>
-                If you are a fan and would like to contribute your team’s memorable matches to “For
-                Club and Country” please create a login and join the discord. Would be excited to
-                see your content added to the app so your fellow supporters can enjoy them. C
+                If you are a fan and would like to contribute your team's memorable matches to "For
+                Club and Country," please email us at admin@forclubandcountry.app. We would be
+                excited to see your content added to the app so your fellow supporters can enjoy
+                more puzzles.
               </Text>
               <Flex mt="2" direction="column">
-                <Link as={ReactLink} to="/signup" style={{ textDecoration: "none" }}>
-                  <Text as="ins">Sign Up</Text>
-                </Link>
                 <Link
-                  as={ReactLink}
-                  to="https://discord.gg/RAYTr6BA"
+                  onClick={clipboardHandler}
+                  href={disc === true ? discordLink : null}
                   style={{ textDecoration: "none" }}
                   isExternal
                 >
-                  <Text as="ins">Discord Link</Text>
+                  <Text as="ins">Connect to Discord</Text>
                 </Link>
               </Flex>
             </Box>

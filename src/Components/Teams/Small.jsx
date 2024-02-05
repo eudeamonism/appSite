@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Flex, Text, useColorModeValue, VStack, Link } from "@chakra-ui/react";
 
 import { Link as ReactLink } from "react-router-dom";
@@ -19,6 +20,20 @@ const Small = () => {
     p: "10",
     background: "url(/images/constructionPhotoFinal.jpg) center/cover no-repeat",
   };
+
+  const [disc, setDisc] = useState(false);
+  const discordLink = "https://discord.gg/FDbekJXN44";
+
+  const clipboardHandler = async () => {
+    try {
+      await navigator.clipboard.writeText(discordLink);
+      setDisc(true);
+      alert("Link copied to clipboard! Click again to travel to our Discord server!");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Flex width="390px" backgroundImage="/images/field2.jpg">
       <VStack width="390px" pt="20px" mb="25px">
@@ -34,13 +49,14 @@ const Small = () => {
         >
           <Text as="ins">Current Clubs</Text>
           <Text fontSize="sm" mb="4px">
-            Barcelona, Bayern Munich, Chelsea, Juventus, Liverpool, Manchester United, Manchester
-            City, Newcastle United, Paris Saint-Germain, Real Madrid, Tottenham Hotspur
+            Ajax, Barcelona, Bayern Munich, Boca Juniors, Borussia Dortumnd, Chelsea, Juventus,
+            Liverpool, Manchester City, Manchester United, Newcastle United, Paris Saint-Germain,
+            Real Madrid, Tottenham Hotspur
           </Text>
           <Text as="ins">Current Countries</Text>
           <Text fontSize="sm">
-            Argentina, Brazil, England, France, Korea Republic, Italy, Spain, United States (Men),
-            United States (Women)
+            Argentina, Brazil, England, France, Germany, Italy, Korea Republic, Nigeria, Spain,
+            United States (Men), United States (Women)
           </Text>
         </Flex>
         <Flex
@@ -54,21 +70,19 @@ const Small = () => {
           borderColor="gray.300"
         >
           <Text fontSize="sm">
-            If you are a fan and would like to contribute your team’s memorable matches to “For Club
-            and Country” please create a login and join the discord. Would be excited to see your
-            content added to the app so your fellow supporters can enjoy them.
+            If you are a fan and would like to contribute your team's memorable matches to "For Club
+            and Country," please email us at admin@forclubandcountry.app. We would be excited to see
+            your content added to the app so your fellow supporters can enjoy more puzzles.
           </Text>
-          <Link fontSize="md" as={ReactLink} to="/signup" style={{ textDecoration: "none" }}>
-            <Text as="ins">Sign Up</Text>
-          </Link>
+
           <Link
             fontSize="md"
-            as={ReactLink}
-            to="https://discord.gg/RAYTr6BA"
+            href={disc === true ? discordLink : null}
             style={{ textDecoration: "none" }}
             isExternal
+            onClick={clipboardHandler}
           >
-            <Text as="ins">Discord Link</Text>
+            <Text as="ins">Connect to Discord</Text>
           </Link>
         </Flex>
         <Flex
