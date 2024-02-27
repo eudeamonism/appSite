@@ -61,7 +61,7 @@ const NavBar = () => {
           List of Teams/Add Your Team
         </Text>
       </Link>
-     
+
       <Link>
         <Text
           onClick={() => {
@@ -89,7 +89,7 @@ const NavBar = () => {
           Form
         </Text>
       </Link>
-      
+
       <Link>
         <Text
           onClick={() => {
@@ -141,12 +141,13 @@ const NavBar = () => {
           <MenuItem>
             <Link
               onClick={() => {
-                navigate("/aboutus");
+                navigate("/teams");
               }}
             >
-              About Us
+              List of Teams/Add your Team
             </Link>
           </MenuItem>
+
           <MenuItem>
             <Link
               onClick={() => {
@@ -159,21 +160,23 @@ const NavBar = () => {
           <MenuItem>
             <Link
               onClick={() => {
+                navigate("/eula");
+              }}
+            >
+              End User Agreement
+            </Link>
+          </MenuItem>
+
+          <MenuItem>
+            <Link
+              onClick={() => {
                 navigate("/form");
               }}
             >
               Form
             </Link>
           </MenuItem>
-          <MenuItem>
-            <Link
-              onClick={() => {
-                navigate("/teams");
-              }}
-            >
-              List of Teams/Add your Team
-            </Link>
-          </MenuItem>
+
           <MenuItem>
             <Link
               onClick={() => {
@@ -183,8 +186,19 @@ const NavBar = () => {
               Music Credits
             </Link>
           </MenuItem>
-          
+
           <MenuItem color="gray.400">Thankyous</MenuItem>
+
+          <MenuItem>
+            <Link
+              onClick={() => {
+                navigate("/aboutus");
+              }}
+            >
+              About Us
+            </Link>
+          </MenuItem>
+          <MenuItem color="gray.400">Login</MenuItem>
         </MenuList>
       </Menu>
       <Spacer />
