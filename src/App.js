@@ -9,6 +9,7 @@ import Privacy from "./Components/Privacy";
 import GoogleForm from "./Screens/GoogleForm";
 import Teams from "./Screens/Teams";
 import Music from "./Screens/Music";
+import Eula from "./Screens/Eula";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/eula" element={<Eula />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/form" element={<GoogleForm />} />

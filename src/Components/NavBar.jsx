@@ -51,15 +51,17 @@ const NavBar = () => {
       <Text color="gray.400" cursor="pointer">
         SignUp
       </Text>
+
       <Link>
         <Text
           onClick={() => {
-            navigate("/aboutus");
+            navigate("/teams");
           }}
         >
-          About Us
+          List of Teams/Add Your Team
         </Text>
       </Link>
+     
       <Link>
         <Text
           onClick={() => {
@@ -72,21 +74,22 @@ const NavBar = () => {
       <Link>
         <Text
           onClick={() => {
+            navigate("/eula");
+          }}
+        >
+          End User Agreement
+        </Text>
+      </Link>
+      <Link>
+        <Text
+          onClick={() => {
             navigate("/form");
           }}
         >
           Form
         </Text>
       </Link>
-      <Link>
-        <Text
-          onClick={() => {
-            navigate("/teams");
-          }}
-        >
-          List of Teams/Add Your Team
-        </Text>
-      </Link>
+      
       <Link>
         <Text
           onClick={() => {
@@ -99,6 +102,15 @@ const NavBar = () => {
       <Text color="gray.400" cursor="pointer">
         Thankyous
       </Text>
+      <Link>
+        <Text
+          onClick={() => {
+            navigate("/aboutus");
+          }}
+        >
+          About Us
+        </Text>
+      </Link>
 
       <Flex alignItems="center" ml="150px">
         <Text color="gray.400" cursor="pointer">
